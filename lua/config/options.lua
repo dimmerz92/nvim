@@ -18,4 +18,4 @@ opt.colorcolumn = "80,120"
 -- folders & files
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim\\undodir"
