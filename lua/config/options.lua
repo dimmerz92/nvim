@@ -1,21 +1,30 @@
-local opt = vim.opt
+-- DISPLAY
+vim.g.have_nerd_font = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.mouse = "a"
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.timeoutlen = 300
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.inccommand = "split"
+vim.opt.cursorline = true
+vim.opt.scrolloff = 20
+vim.opt.hlsearch = true
 
--- screen & text
-opt.nu = true
-opt.relativenumber = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.smartindent = true
-opt.wrap = false
-opt.hlsearch = false
-opt.incsearch = true
-opt.termguicolors = true
-opt.scrolloff = 20
-opt.colorcolumn = "80,120"
+-- FOLDERS, FILES & DATA
+vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim.
+vim.opt.undofile = true -- Save undo history
+vim.opt.updatetime = 250
 
--- folders & files
-opt.swapfile = false
-opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- TEXT
+vim.opt.breakindent = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.smarttab = true
+vim.opt.smartindent = true
