@@ -1,35 +1,52 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- project view
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+local km = vim.keymap
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+-- clear highlight on escape
+km.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
--- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+-- dianostics
+km.set("n", "[d", vim.diagnostic.goto_prev, {
+  desc="Go to previous [D]iagnostic message"
 })
+km.set("n", "]d", vim.diagnostic.goto_next, {
+  desc="Go to next [D]iagnostic message"
+})
+km.set("n", "<leader>e", vim.diagnostic.open_float, {
+  desc="Show diagnostic [E]rror message"
+})
+km.set("n", "<leader>q", vim.diagnostic.setloclist, {
+  desc="Open diagnostic [Q]uickfix list"
+})
+
+-- window selection
+km.set("n", "<C-h>", "<C-w>h", { desc="Go to left window" })
+km.set("n", "<C-j>", "<C-w>j", { desc="Go to lower window" })
+km.set("n", "<C-k>", "<C-w>k", { desc="Go to upper window" })
+km.set("n", "<C-l>", "<C-w>l", { desc="Go to right window" })
+
+-- move lines
+km.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc="Move up" })
+km.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc="Move up" })
+km.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc="Move up" })
+km.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc="Move down" })
+km.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc="Move down" })
+km.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc="Move down" })
+
+-- move lines (but for silly macs)
+km.set("n", "˚", "<cmd>m .-2<cr>==", { desc="Move up" })
+km.set("v", "˚", ":m '<-2<cr>gv=gv", { desc="Move up" })
+km.set("i", "˚", "<esc><cmd>m .-2<cr>==gi", { desc="Move up" })
+km.set("n", "∆", "<cmd>m .+1<cr>==", { desc="Move down" })
+km.set("v", "∆", ":m '>+1<cr>gv=gv", { desc="Move down" })
+km.set("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc="Move down" })
+
+-- file exploring
+km.set("n", "<leader>pv", vim.cmd.Ex, { desc="Project view" })
+
+-- disable arrow keys in normal/view to be a good little vimmer
+km.set({ "n", "v" }, "<left>", "<cmd>echo 'Use h to move!!'<CR>")
+km.set({ "n", "v" }, "<right>", "<cmd>echo 'Use l to move!!'<CR>")
+km.set({ "n", "v" }, "<up>", "<cmd>echo 'Use k to move!!'<CR>")
+km.set({ "n", "v" }, "<down>", "<cmd>echo 'Use j to move!!'<CR>")
