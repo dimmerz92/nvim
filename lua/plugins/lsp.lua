@@ -89,7 +89,7 @@ return {
 					},
 				},
 			},
-			pyright = {},
+			pylsp = {},
 			templ = {},
 			tsserver = {},
 		}
