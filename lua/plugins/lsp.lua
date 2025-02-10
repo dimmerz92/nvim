@@ -69,9 +69,7 @@ return {
 		local servers = {
 			gopls = {},
 			html = {},
-			htmx = {
-				filetypes = { "html", "templ" },
-			},
+			htmx = { filetypes = { "html", "templ" } },
 			lua_ls = {
 				settings = {
 					Lua = {
