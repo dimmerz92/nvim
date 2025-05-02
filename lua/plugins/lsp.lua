@@ -93,10 +93,23 @@ return {
 		}
 
 		require("mason").setup()
-		local ensure_installed = vim.tbl_keys(servers or {})
+
+		local lsp_to_package = {
+			tsserver = "typescript-language-server",
+			lua_ls = "lua-language-server",
+			pylsp = "python-lsp-server",
+			html = "html-lsp",
+			htmx = "htmx-lsp",
+		}
+
+		local ensure_installed = vim.tbl_map(function(name)
+			return lsp_to_package[name] or name
+		end, vim.tbl_keys(servers or {}))
+
 		vim.list_extend(ensure_installed, {
 			"stylua",
 		})
+
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
