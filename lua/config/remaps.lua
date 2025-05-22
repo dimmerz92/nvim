@@ -7,18 +7,10 @@ local km = vim.keymap
 km.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- dianostics
-km.set("n", "[d", vim.diagnostic.goto_prev, {
-  desc="Go to previous [D]iagnostic message"
-})
-km.set("n", "]d", vim.diagnostic.goto_next, {
-  desc="Go to next [D]iagnostic message"
-})
-km.set("n", "<leader>e", vim.diagnostic.open_float, {
-  desc="Show diagnostic [E]rror message"
-})
-km.set("n", "<leader>q", vim.diagnostic.setloclist, {
-  desc="Open diagnostic [Q]uickfix list"
-})
+km.set("n", "[d", vim.diagnostic.goto_prev, { desc="Go to previous [D]iagnostic message" })
+km.set("n", "]d", vim.diagnostic.goto_next, { desc="Go to next [D]iagnostic message" })
+km.set("n", "<leader>e", vim.diagnostic.open_float, { desc="Show diagnostic [E]rror message" })
+km.set("n", "<leader>q", vim.diagnostic.setloclist, { desc="Open diagnostic [Q]uickfix list" })
 
 -- window selection
 km.set("n", "<C-h>", "<C-w>h", { desc="Go to left window" })
