@@ -13,10 +13,10 @@ km.set("n", "<leader>e", vim.diagnostic.open_float, { desc="Show diagnostic [E]r
 km.set("n", "<leader>q", vim.diagnostic.setloclist, { desc="Open diagnostic [Q]uickfix list" })
 
 -- window selection
-km.set("n", "<C-h>", "<C-w>h", { desc="Go to left window" })
-km.set("n", "<C-j>", "<C-w>j", { desc="Go to lower window" })
-km.set("n", "<C-k>", "<C-w>k", { desc="Go to upper window" })
-km.set("n", "<C-l>", "<C-w>l", { desc="Go to right window" })
+km.set("n", "<C-S-h>", "<C-w>h", { desc="Go to left window" })
+km.set("n", "<C-S-j>", "<C-w>j", { desc="Go to lower window" })
+km.set("n", "<C-S-k>", "<C-w>k", { desc="Go to upper window" })
+km.set("n", "<C-S-l>", "<C-w>l", { desc="Go to right window" })
 
 -- move lines
 km.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc="Move up" })

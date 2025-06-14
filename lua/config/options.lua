@@ -1,29 +1,30 @@
+local vo = vim.opt
+
 -- DISPLAY
-vim.opt.colorcolumn = "80,120"
-vim.opt.termguicolors = true
-vim.opt.inccommand = "split"
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.mouse = "a"
-vim.opt.number = true
-vim.opt.scrolloff = 10
-vim.opt.showmode = false
-vim.opt.signcolumn = "yes"
-vim.opt.relativenumber = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vo.inccommand = "split"
+vo.list = true
+vo.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vo.mouse = "a"
+vo.number = true
+vo.relativenumber = true
+vo.scrolloff = 10
+vo.signcolumn = "yes"
+vo.splitbelow = true
+vo.splitright = true
+vo.termguicolors = true
+vo.winborder = "rounded"
 
 -- BACKEND
-vim.opt.clipboard = "unnamedplus"
-vim.opt.undofile = true
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vo.clipboard = "unnamedplus"
+vo.undofile = true
+vo.updatetime = 250
+vo.timeoutlen = 300
 
 -- TEXT
-vim.opt.autoindent = true
-vim.opt.breakindent = true
-vim.opt.ignorecase = true
-vim.opt.linebreak = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+vo.autoindent = true
+vo.breakindent = true
+vo.ignorecase = true
+vo.linebreak = true
+vo.shiftwidth = 4
+vo.softtabstop = 4
+vo.tabstop = 4

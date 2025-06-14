@@ -1,4 +1,4 @@
-require("config.autocmd")
+require("config.aucmd")
 require("config.options")
 require("config.remaps")
 

@@ -1,25 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
+	lazy = false,
 	build = ":TSUpdate",
 	opts = {
-		ensure_installed = {
-			"c",
-			"css",
-			"go",
-			"html",
-			"javascript",
-			"jsdoc",
-			"lua",
-			"python",
-			"query",
-			"sql",
-			"templ",
-			"toml",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"yaml",
-		},
+		ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
 		sync_install = false,
 		auto_install = true,
 		highlight = { enable = true },
@@ -29,5 +14,5 @@ return {
 	config = function(_, opts)
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.configs").setup(opts)
-	end,
+	end
 }

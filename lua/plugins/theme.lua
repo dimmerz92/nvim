@@ -1,38 +1,22 @@
-function ApplyTheme()
-	vim.cmd.colorscheme("catppuccin")
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
 return {
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			config = function()
-				require("lualine").setup({
-					options = { theme = "catppuccin" },
-				})
-			end
-		},
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		lazy = false,
-		config = function()
-			ApplyTheme()
-			require("catppuccin").setup({
-				flavour = "mocha",
-				term_colors = true,
-				integrations = {
-					cmp = true,
-					gitsigns = true,
-					treesitter = true,
-					notify = true,
-				},
-			})
-		end
-	}
+	"catppuccin/nvim",
+	name = "catppuccin",
+	priority = 1000,
+	config = function()
+		require("catppuccin").setup({
+			flavor = "mocha",
+			term_colors = true,
+			dim_inactive = { enabled = true, shade = "dark", percentage = 0.05 },
+			integrations = {
+				blink_cmp = { style = "bordered" },
+				fidget = true,
+				gitgutter = true,
+				mason = true,
+				telescope = { enabled = true },
+				treesitter = true,
+			},
+		})
+
+		vim.cmd.colorscheme "catppuccin"
+	end,
 }
