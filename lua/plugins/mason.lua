@@ -2,6 +2,7 @@ return {
 	"mason-org/mason-lspconfig.nvim",
 	opts = {
 		ensure_installed = {
+			"clangd",
 			"cssls",
 			"gopls",
 			"html",
@@ -13,8 +14,8 @@ return {
 		},
 	},
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
 		{ "j-hui/fidget.nvim",    opts = { notification = { window = { winblend = 0 } } } },
+		{ "mason-org/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
 	},
 }
