@@ -33,6 +33,5 @@ return {
 	config = function(_, opts)
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.configs").setup(opts)
-		vim.diagnostic.config({ virtual_text = true })
-	end
+	end,
 }

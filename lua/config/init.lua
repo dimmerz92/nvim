@@ -1,5 +1,6 @@
-require("config.aucmd")
+require("config.autocmds")
+require("config.keymaps")
+require("config.lsp")
 require("config.options")
-require("config.remaps")
 
 require("config.lazy")

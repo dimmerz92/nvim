@@ -1,11 +1,13 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {
-		auto_install = true,
-		format_on_save = { timeout_ms = 350, lsp_fallback = true },
+		format_on_save = {
+			timeout_ms = 500,
+			lsp_format = "fallback",
+		},
 		formatters_by_ft = {
 			go = { "gofmt" },
 			templ = { "templ" },
 		},
-	}
+	},
 }
