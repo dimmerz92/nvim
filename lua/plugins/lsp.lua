@@ -17,6 +17,7 @@ return {
 			keymap = {
 				preset = "default",
 				["<Tab>"] = { "accept", "fallback" },
+				["<Escape>"] = { "cancel", "fallback" }
 			},
 			appearance = { nerd_font_variant = "mono" },
 			completion = { documentation = { auto_show = false } },
@@ -24,17 +25,5 @@ return {
 			fuzzy = { implementation = "prefer_rust_with_warning" }
 		},
 		opts_extend = { "sources.default" }
-	},
-	{
-		"ray-x/lsp_signature.nvim",
-		event = "InsertEnter",
-		opts = {
-			bind = true,
-			hint_prefix = {
-				above = "↙ ",
-				current = "← ",
-				below = "↖ ",
-			},
-		},
 	},
 }
