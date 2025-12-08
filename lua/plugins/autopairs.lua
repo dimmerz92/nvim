@@ -4,5 +4,5 @@ return {
 		event = "InsertEnter",
 		config = true,
 	},
-	{ "HiPhish/rainbow-delimiters.nvim" }
+	-- { "HiPhish/rainbow-delimiters.nvim" } causes issues with telescope :'(
 }

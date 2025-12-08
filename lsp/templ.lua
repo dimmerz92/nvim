@@ -1,5 +1,0 @@
-return {
-	cmd = { "templ", "lsp" },
-	filetypes = { "templ" },
-	root_markers = { "go.mod", "go.sum", "go.work", ".git" },
-}
