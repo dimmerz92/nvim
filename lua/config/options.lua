@@ -18,4 +18,3 @@ opt.softtabstop = 4
 opt.tabstop = 4
 opt.termguicolors = true
 opt.undofile = true
-
