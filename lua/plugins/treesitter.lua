@@ -7,6 +7,7 @@ return {
 		ensure_installed = {
 			"c",
 			"css",
+			"c_sharp",
 			"go",
 			"html",
 			"javascript",
@@ -16,6 +17,7 @@ return {
 			"markdown_inline",
 			"python",
 			"query",
+			"razor",
 			"sql",
 			"templ",
 			"toml",
