@@ -20,6 +20,3 @@ require("lazy").setup({
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
 })
-
-vim.opt.background = "dark"
-vim.cmd [[colorscheme gruvbox]]

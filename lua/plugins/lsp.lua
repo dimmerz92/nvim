@@ -1,29 +1,25 @@
 return {
-	{ "neovim/nvim-lspconfig" },
-	{
-		"folke/lazydev.nvim",
-		ft = "lua",
-		opts = {
-			library = {
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+	"neovim/nvim-lspconfig",
+	config = function()
+		vim.diagnostic.config({
+			virtual_text = true,
+			virtual_lines = false,
+			update_in_insert = true,
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = "always",
 			},
-		},
-	},
-	{
-		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "1.3.*",
-		opts = {
-			keymap = {
-				preset = "default",
-				["<Tab>"] = { "accept", "fallback" },
-				["<Escape>"] = { "cancel", "fallback" }
-			},
-			appearance = { nerd_font_variant = "mono" },
-			completion = { documentation = { auto_show = true } },
-			sources = { default = { "lsp", "path", "snippets", "buffer" } },
-			fuzzy = { implementation = "prefer_rust_with_warning" }
-		},
-		opts_extend = { "sources.default" }
-	},
+		})
+
+		-- HTML, HTMX, CSS, JS, TS
+		vim.lsp.config("html", { filetypes = { "html", "templ" } })
+		vim.lsp.config("htmx", { filetypes = { "html", "templ" } })
+		vim.lsp.enable({ "html", "htmx", "tailwindcss" })
+
+		-- Go, Templ
+		vim.filetype.add({ extension = { templ = "templ" } })
+		vim.lsp.enable({ "gopls", "templ" })
+	end,
 }
